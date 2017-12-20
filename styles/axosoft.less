@@ -4,17 +4,57 @@
 // for a full listing of what's available.
 @import "ui-variables";
 
-.axosoft {
+.atom-axosoft {
+    .select-list {
+        atom-text-editor {
+            // display: none;
+            &:focus {
+                background-color: red;
+            }
+        }
+        position: relative;
+        height: @component-line-height;
+        ol.list-group {
+            display: none;
+        }
+        &.active {
+            ol.list-group {
+                display:block;
+                position: absolute;
+                top: @component-line-height;
+                line-height: @component-line-height;
+                margin: 0;
+                // left: 0;
+                z-index: 999;
+                background-color: #252c37;
+            }
+        }
 
+    }
 }
 
-.axosoft-feature-list {
+.atom-axosoft-feature-list {
     list-style: none;
     margin: 0;
     padding: 0;
     li {
+        // select {
+        //     position: relative;
+        // }
+        // span::before {
+        //     display: block;
+        //     position: absolute;
+        //     top: 1em;
+        //     left: 0;
+        //     width: 5em;
+        //     height: 1em;
+        //     background-color: red;
+        //     content: " ";
+        //     z-index: 99999;
+        // }
         display: block;
         clear: both;
+        border-left: 0.25em solid transparent;
         span {
             display: inline-block;
             width: 30%;
@@ -27,15 +67,15 @@
             text-align: left;
             padding: 0 0.5em 0 0.5em;
         }
-        .axosoft-feature-status {
+        .atom-axosoft-feature-status {
             width: 20%;
 
             text-align: right;
         }
-        .axosoft-feature-name {
+        .atom-axosoft-feature-name {
             width: 60%;
         }
-        .axosoft-feature-priority {
+        .atom-axosoft-feature-priority {
             width: 20%;
             // &.axosoft-feature-priority-high {
             //     background-color: fade(@background-color-error, 50%);
@@ -47,11 +87,17 @@
             //     background-color: fade(@background-color-success, 33%);
             // }
         }
-        &.axosoft-feature-priority-high {
-            background-color: fade(@background-color-error, 25%);
+        &.atom-axosoft-feature-priority-high {
+            background-color: fade(@background-color-error, 15%);
+            border-left-color: fade(@background-color-error, 50%);
         }
-        &.axosoft-feature-priority-medium {
-            background-color: fade(@background-color-warning, 25%);
+        &.atom-axosoft-feature-priority-medium {
+            background-color: fade(@background-color-warning, 15%);
+            border-left-color: fade(@background-color-warning, 50%);
+        }
+        &.atom-axosoft-feature-priority-low {
+            // background-color: fade(@background-color-success, 5%);
+            border-left-color: fade(@background-color-success, 50%);
         }
     }
 }
