@@ -1,7 +1,7 @@
 {
   "name": "atom-axosoft",
   "main": "./lib/atom-axosoft",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "A short description of your package",
   "keywords": [],
   "repository": "https://github.com/codefocus/atom-axosoft",
