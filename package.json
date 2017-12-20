@@ -1,10 +1,10 @@
 {
-  "name": "axosoft",
-  "main": "./lib/axosoft",
+  "name": "atom-axosoft",
+  "main": "./lib/atom-axosoft",
   "version": "0.0.1",
   "description": "A short description of your package",
   "keywords": [],
-  "repository": "https://github.com/atom/axosoft",
+  "repository": "https://github.com/codefocus/atom-axosoft",
   "license": "MIT",
   "engines": {
     "atom": ">=1.0.0 <2.0.0"
