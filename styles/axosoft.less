@@ -32,15 +32,18 @@
             display: block;
             position: absolute;
             width: @component-line-height;
-            height: (@component-line-height * .75);
+            height: @component-line-height;
+            // height: (@component-line-height * .75);
             // #8AC732
             background-color: fade(@background-color-success, 66%);
-            -webkit-mask-image: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg);
-            mask-image: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg);
+            -webkit-mask: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg) no-repeat;
+            mask: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg) no-repeat;
             top: 0;
             left: -@component-line-height;
             content: " ";
             line-height: @component-line-height;
+            transition: background-color 500ms ease-out;
+            box-shadow: 0 0 1em @background-color-success inset;
         }
 
         &::after {
@@ -60,6 +63,10 @@
         &:hover,
         &.focus,
         &.active {
+            &::before {
+                background-color: @background-color-success;
+                // transition: background-color 150ms ease-out;
+            }
             &::after {
                 opacity: 0;
                 transition: opacity 150ms ease-out;
