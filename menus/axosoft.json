@@ -1,0 +1,26 @@
+{
+  "context-menu": {
+    "atom-text-editor": [
+      {
+        "label": "Toggle axosoft",
+        "command": "axosoft:toggle"
+      }
+    ]
+  },
+  "menu": [
+    {
+      "label": "Packages",
+      "submenu": [
+        {
+          "label": "axosoft",
+          "submenu": [
+            {
+              "label": "Toggle",
+              "command": "axosoft:toggle"
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

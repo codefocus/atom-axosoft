@@ -1,0 +1,57 @@
+// The ui-variables file is provided by base themes provided by Atom.
+//
+// See https://github.com/atom/atom-dark-ui/blob/master/styles/ui-variables.less
+// for a full listing of what's available.
+@import "ui-variables";
+
+.axosoft {
+
+}
+
+.axosoft-feature-list {
+    list-style: none;
+    margin: 0;
+    padding: 0;
+    li {
+        display: block;
+        clear: both;
+        span {
+            display: inline-block;
+            width: 30%;
+            background-color: transparent;
+            height: 1.75em;
+            line-height: 1.75em;
+            text-overflow: ellipsis;
+            overflow: hidden;
+            white-space: nowrap;
+            text-align: left;
+            padding: 0 0.5em 0 0.5em;
+        }
+        .axosoft-feature-status {
+            width: 20%;
+
+            text-align: right;
+        }
+        .axosoft-feature-name {
+            width: 60%;
+        }
+        .axosoft-feature-priority {
+            width: 20%;
+            // &.axosoft-feature-priority-high {
+            //     background-color: fade(@background-color-error, 50%);
+            // }
+            // &.axosoft-feature-priority-medium {
+            //     background-color: fade(@background-color-warning, 33%);
+            // }
+            // &.axosoft-feature-priority-low {
+            //     background-color: fade(@background-color-success, 33%);
+            // }
+        }
+        &.axosoft-feature-priority-high {
+            background-color: fade(@background-color-error, 25%);
+        }
+        &.axosoft-feature-priority-medium {
+            background-color: fade(@background-color-warning, 25%);
+        }
+    }
+}
