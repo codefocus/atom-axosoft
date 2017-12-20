@@ -101,6 +101,7 @@
         display: block;
         clear: both;
         border-left: 0.25em solid transparent;
+        border-bottom: 1px solid @app-background-color;
         cursor: default;
         > span,
         > a {
@@ -155,10 +156,9 @@
             }
         }
         &.atom-axosoft-feature-priority-high {
-            background-color: fade(@background-color-error, 10%);
+            background-color: fade(@background-color-error, 7%);
             &:hover {
                 background-color: fade(@background-color-error, 25%);
-
             }
             border-left-color: fade(@background-color-error, 50%);
             .atom-axosoft-feature-priority {
@@ -173,7 +173,10 @@
             }
         }
         &.atom-axosoft-feature-priority-medium {
-            background-color: fade(@background-color-warning, 15%);
+            background-color: fade(@background-color-warning, 7%);
+            &:hover {
+                background-color: fade(@background-color-warning, 25%);
+            }
             border-left-color: fade(@background-color-warning, 50%);
             .atom-axosoft-feature-priority {
                 background-color: @background-color-warning;
@@ -187,6 +190,10 @@
             }
         }
         &.atom-axosoft-feature-priority-low {
+            background-color: fade(@background-color-success, 7%);
+            &:hover {
+                background-color: fade(@background-color-success, 25%);
+            }
             border-left-color: fade(@background-color-success, 50%);
             .atom-axosoft-feature-priority {
                 background-color: @background-color-success;
