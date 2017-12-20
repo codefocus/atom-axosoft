@@ -6,27 +6,63 @@
 
 .atom-axosoft {
     .select-list {
-        atom-text-editor {
-            // display: none;
-            &:focus {
-                background-color: red;
-            }
-        }
         position: relative;
+        margin-left: @component-line-height;
         height: @component-line-height;
-        ol.list-group {
+        ol.list-group,
+        > span {
             display: none;
         }
         &.active {
+            > span {
+                display:block;
+                background-color: #252c37;
+            }
             ol.list-group {
                 display:block;
                 position: absolute;
                 top: @component-line-height;
                 line-height: @component-line-height;
                 margin: 0;
-                // left: 0;
                 z-index: 999;
                 background-color: #252c37;
+            }
+        }
+        &::before {
+            display: block;
+            position: absolute;
+            width: @component-line-height;
+            height: (@component-line-height * .75);
+            // #8AC732
+            background-color: fade(@background-color-success, 66%);
+            -webkit-mask-image: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg);
+            mask-image: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg);
+            top: 0;
+            left: -@component-line-height;
+            content: " ";
+            line-height: @component-line-height;
+        }
+
+        &::after {
+            display: block;
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            content: attr(data-project-name);
+            top: 0;
+            left: 0;
+            line-height: @component-line-height;
+            padding-left: 0.5em;
+            pointer-events: none;
+            opacity: 0.66;
+            transition: opacity 500ms ease-out;
+        }
+        &:hover,
+        &.focus,
+        &.active {
+            &::after {
+                opacity: 0;
+                transition: opacity 150ms ease-out;
             }
         }
 
@@ -69,7 +105,6 @@
         }
         .atom-axosoft-feature-status {
             width: 20%;
-
             text-align: right;
         }
         .atom-axosoft-feature-name {
@@ -77,15 +112,6 @@
         }
         .atom-axosoft-feature-priority {
             width: 20%;
-            // &.axosoft-feature-priority-high {
-            //     background-color: fade(@background-color-error, 50%);
-            // }
-            // &.axosoft-feature-priority-medium {
-            //     background-color: fade(@background-color-warning, 33%);
-            // }
-            // &.axosoft-feature-priority-low {
-            //     background-color: fade(@background-color-success, 33%);
-            // }
         }
         &.atom-axosoft-feature-priority-high {
             background-color: fade(@background-color-error, 15%);
@@ -96,7 +122,6 @@
             border-left-color: fade(@background-color-warning, 50%);
         }
         &.atom-axosoft-feature-priority-low {
-            // background-color: fade(@background-color-success, 5%);
             border-left-color: fade(@background-color-success, 50%);
         }
     }
