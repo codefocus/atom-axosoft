@@ -28,22 +28,28 @@
     position: relative;
     height: 100%;
     overflow: hidden;
-    .atom-axosoft-filter {
+    .atom-axosoft-filter,
+    .settings-view {
         position: relative;
-        .control-label {
-            display: inline-block;
-            width: 30%;
-        }
-        .controls {
-            margin-right: @component-line-height;
-            .form-control {
+        // .control-group {
+        //     display: block;
+        //     position: relative;
+        //     width: 100%;
+            .control-label {
                 display: inline-block;
-                width: 70%;
-                option.atom-axosoft-placeholder {
-                    display: none;
+                width: 30%;
+            }
+            .controls {
+                margin-right: @component-line-height;
+                .form-control {
+                    display: inline-block;
+                    width: 70%;
+                    option.atom-axosoft-placeholder {
+                        display: none;
+                    }
                 }
             }
-        }
+        // }
         a.atom-axosoft-reload {
             position: absolute;
             width: @component-line-height;
@@ -67,120 +73,21 @@
             }
         }
     }
-    // .atom-axosoft-project-filter {
-    //     position: absolute;
-    //     top: @component-line-height * 2;
-    //     left: 0;
-    //     width: 100%;
-    //     height: @component-line-height;
-    //     z-index: 1;
-    //     a.atom-axosoft-reload-projects {
-    //         position: absolute;
-    //         width: @component-line-height;
-    //         height: @component-line-height;
-    //         background-color: fade(@text-color, 50%);
-    //         top: 0;
-    //         right: 0;
-    //         z-index: 999900;
-    //         -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat 50% 50%;
-    //         mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat 50% 50%;
-    //         -webkit-mask-size: contain;
-    //         mask-size: contain;
-    //         &:hover {
-    //             background-color: @text-color;
-    //         }
-    //     }
-    //     .select-list {
-    //         position: relative;
-    //         margin-left: @component-line-height;
-    //         height: @component-line-height;
-    //         ol.list-group,
-    //         > span {
-    //             display: none;
-    //         }
-    //         &.active {
-    //             > span {
-    //                 display:block;
-    //                 background-color: #252c37;
-    //             }
-    //             ol.list-group {
-    //                 display:block;
-    //                 position: absolute;
-    //                 top: @component-line-height;
-    //                 line-height: @component-line-height;
-    //                 margin: 0;
-    //                 z-index: 999;
-    //                 background-color: #252c37;
-    //             }
-    //         }
-    //         &::before {
-    //             display: block;
-    //             position: absolute;
-    //             width: @component-line-height;
-    //             height: @component-line-height;
-    //             // height: (@component-line-height * .75);
-    //             // #8AC732
-    //             background-color: fade(@background-color-success, 66%);
-    //             -webkit-mask: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg) no-repeat 50% 50%;
-    //             mask: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg) no-repeat 50% 50%;
-    //             -webkit-mask-size: contain;
-    //             mask-size: contain;
-    //             top: 0;
-    //             left: -@component-line-height;
-    //             content: " ";
-    //             line-height: @component-line-height;
-    //             transition: background-color 500ms ease-out;
-    //             box-shadow: 0 0 1em @background-color-success inset;
-    //         }
-    //         &::after {
-    //             display: block;
-    //             position: absolute;
-    //             width: 100%;
-    //             height: 100%;
-    //             content: attr(data-project-name);
-    //             top: 0;
-    //             left: 0;
-    //             line-height: @component-line-height;
-    //             padding-left: 0.5em;
-    //             pointer-events: none;
-    //             opacity: 0.66;
-    //             transition: opacity 500ms ease-out;
-    //         }
-    //         &.empty {
-    //             &::after {
-    //                 content: 'Select Project';
-    //                 opacity: 0.33;
-    //             }
-    //         }
-    //         &:hover,
-    //         &.focus,
-    //         &.active {
-    //             &::before {
-    //                 background-color: @background-color-success;
-    //             }
-    //             &::after {
-    //                 opacity: 0;
-    //                 transition: opacity 150ms ease-out;
-    //             }
-    //         }
-    //
-    //     }
-    // }
-
-
-
 }
 
 .atom-axosoft-feature-list {
     list-style: none;
     margin: 0;
     // margin: (@component-line-height * 2) 0 0 0;
-    padding: 0 0 (@component-line-height * 2) 0;
+    padding: 0 0 (@component-line-height * 4) 0;
     // padding: 0;
     max-height: 100%;
     overflow-y: auto;
     z-index: 0;
     > li {
+        &:last-child {
+            // margin-bottom: 10em;
+        }
         // select {
         //     position: relative;
         // }
