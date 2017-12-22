@@ -142,16 +142,33 @@
         }
         .atom-axosoft-feature-description {
             width: 100%;
-            // height: au
             max-height: 0;
             color: @text-color;
             overflow: auto;
-            padding-left: 15%;
             text-align: left;
             background-color: @base-background-color;
             transition: max-height 150ms ease-in;
             &.atom-axosoft-empty {
                 color: fade(@text-color, 50%);
+            }
+            > div {
+                margin: (@component-line-height / 2);
+            }
+            h1 {
+                font-size: @font-size * 1.5;
+            }
+            h2 {
+                font-size: @font-size * 1.33;
+            }
+            h3 {
+                font-size: @font-size * 1.2;
+            }
+            h4, h5, h6 {
+                font-size: @font-size;
+            }
+            ul, ol {
+                padding: 0 0 0 1.5em;
+                margin: 0 0 (@component-line-height / 2) 0
             }
         }
         &.atom-axosoft-open {
