@@ -6,83 +6,120 @@
 
 .atom-axosoft {
     overflow-y: auto;
-    .select-list {
-        position: relative;
-        margin-left: @component-line-height;
+    position: relative;
+    height: 100%;
+    overflow: hidden;
+    .atom-axosoft-project-filter {
+        position: absolute;
+        top: @component-line-height;
+        left: 0;
+        width: 100%;
         height: @component-line-height;
-        ol.list-group,
-        > span {
-            display: none;
-        }
-        &.active {
-            > span {
-                display:block;
-                background-color: #252c37;
-            }
-            ol.list-group {
-                display:block;
-                position: absolute;
-                top: @component-line-height;
-                line-height: @component-line-height;
-                margin: 0;
-                z-index: 999;
-                background-color: #252c37;
-            }
-        }
-        &::before {
-            display: block;
+        z-index: 1;
+        a.atom-axosoft-reload-projects {
             position: absolute;
             width: @component-line-height;
             height: @component-line-height;
-            // height: (@component-line-height * .75);
-            // #8AC732
-            background-color: fade(@background-color-success, 66%);
-            -webkit-mask: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg) no-repeat 50% 50%;
-            mask: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg) no-repeat 50% 50%;
+            background-color: fade(@text-color, 50%);
+            top: 0;
+            right: 0;
+            z-index: 999900;
+            -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat 50% 50%;
+            mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat 50% 50%;
             -webkit-mask-size: contain;
             mask-size: contain;
-            top: 0;
-            left: -@component-line-height;
-            content: " ";
-            line-height: @component-line-height;
-            transition: background-color 500ms ease-out;
-            box-shadow: 0 0 1em @background-color-success inset;
+            &:hover {
+                background-color: @text-color;
+            }
         }
-
-        &::after {
-            display: block;
-            position: absolute;
-            width: 100%;
-            height: 100%;
-            content: attr(data-project-name);
-            top: 0;
-            left: 0;
-            line-height: @component-line-height;
-            padding-left: 0.5em;
-            pointer-events: none;
-            opacity: 0.66;
-            transition: opacity 500ms ease-out;
-        }
-        &:hover,
-        &.focus,
-        &.active {
+        .select-list {
+            position: relative;
+            margin-left: @component-line-height;
+            height: @component-line-height;
+            ol.list-group,
+            > span {
+                display: none;
+            }
+            &.active {
+                > span {
+                    display:block;
+                    background-color: #252c37;
+                }
+                ol.list-group {
+                    display:block;
+                    position: absolute;
+                    top: @component-line-height;
+                    line-height: @component-line-height;
+                    margin: 0;
+                    z-index: 999;
+                    background-color: #252c37;
+                }
+            }
             &::before {
-                background-color: @background-color-success;
-                // transition: background-color 150ms ease-out;
+                display: block;
+                position: absolute;
+                width: @component-line-height;
+                height: @component-line-height;
+                // height: (@component-line-height * .75);
+                // #8AC732
+                background-color: fade(@background-color-success, 66%);
+                -webkit-mask: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg) no-repeat 50% 50%;
+                mask: url(atom://atom-axosoft/resources/svg/axosoft-logo.svg) no-repeat 50% 50%;
+                -webkit-mask-size: contain;
+                mask-size: contain;
+                top: 0;
+                left: -@component-line-height;
+                content: " ";
+                line-height: @component-line-height;
+                transition: background-color 500ms ease-out;
+                box-shadow: 0 0 1em @background-color-success inset;
             }
             &::after {
-                opacity: 0;
-                transition: opacity 150ms ease-out;
+                display: block;
+                position: absolute;
+                width: 100%;
+                height: 100%;
+                content: attr(data-project-name);
+                top: 0;
+                left: 0;
+                line-height: @component-line-height;
+                padding-left: 0.5em;
+                pointer-events: none;
+                opacity: 0.66;
+                transition: opacity 500ms ease-out;
             }
-        }
+            &.empty {
+                &::after {
+                    content: 'Select Project';
+                    opacity: 0.33;
+                }
+            }
+            &:hover,
+            &.focus,
+            &.active {
+                &::before {
+                    background-color: @background-color-success;
+                }
+                &::after {
+                    opacity: 0;
+                    transition: opacity 150ms ease-out;
+                }
+            }
 
+        }
     }
+
+
+
 }
 
 .atom-axosoft-feature-list {
     list-style: none;
-    margin: 0;
+    margin: (@component-line-height * 2) 0 0 0;
     padding: 0;
+    max-height: 100%;
+    overflow-y: auto;
+    z-index: 0;
     > li {
         // select {
         //     position: relative;
@@ -99,7 +136,7 @@
         //     z-index: 99999;
         // }
         display: block;
-        clear: both;
+        clear: both;;
         border-left: 0.25em solid transparent;
         border-bottom: 1px solid @app-background-color;
         cursor: default;
@@ -115,6 +152,7 @@
             white-space: nowrap;
             text-align: left;
             padding: 0 0.5em 0 0.5em;
+
         }
         .atom-axosoft-feature-id {
             width: 15%;
@@ -133,21 +171,21 @@
         .atom-axosoft-feature-priority {
             width: 5%;
             text-align: right;
-            font-weight: bold;
-            transform: scale(1.5);
             text-shadow: 0 0.0612em 0.125em fade(@app-background-color, 50%);
         }
         .atom-axosoft-feature-description {
             width: 100%;
             // height: auto;
             max-height: 0;
-            // visibility: hidden;
+            color: @text-color;
             overflow: auto;
             padding-left: 15%;
             text-align: left;
-            // background-color: fade(@pane-item-background-color, 100%);
             background-color: @base-background-color;
             transition: max-height 150ms ease-in;
+            &.atom-axosoft-empty {
+                color: fade(@text-color, 50%);
+            }
         }
         &.atom-axosoft-open {
             .atom-axosoft-feature-description {
