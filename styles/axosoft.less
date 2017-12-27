@@ -207,6 +207,11 @@
         &:last-child {
             // margin-bottom: 10em;
         }
+        &.disabled {
+            color: fade(@text-color, 50%);
+            pointer-events: none;
+            cursor: wait;
+        }
         > span,
         > a {
             background-color: transparent;
