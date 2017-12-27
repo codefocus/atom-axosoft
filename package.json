@@ -1,9 +1,18 @@
 {
   "name": "atom-axosoft",
   "main": "./lib/atom-axosoft",
-  "version": "0.1.13",
+  "version": "0.1.14",
   "description": "Access your Axosoft work items without leaving Atom.",
-  "keywords": ["axosoft", "axo", "bugtracker", "tickets", "issues", "tracker", "codefocus", "menno"],
+  "keywords": [
+    "axosoft",
+    "axo",
+    "bugtracker",
+    "tickets",
+    "issues",
+    "tracker",
+    "codefocus",
+    "menno"
+  ],
   "repository": "https://github.com/codefocus/atom-axosoft",
   "license": "MIT",
   "engines": {
