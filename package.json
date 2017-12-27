@@ -11,6 +11,7 @@
   },
   "dependencies": {
     "amator": "^1.1.0",
+    "atom-space-pen-views": "^2.2.0",
     "event-kit": "^2.4.0",
     "linkifyjs": "^2.1.5",
     "node-axosoft": "^2.3.0"
