@@ -47,26 +47,26 @@
 }
 
 .atom-axosoft {
-    overflow-y: auto;
-    position: relative;
     height: 100%;
     overflow: hidden;
+    overflow-y: auto;
+    position: relative;
     .atom-axosoft-filter,
     .settings-view {
         position: relative;
         width: 100%;
         select,
         select.form-control {
-            color: @text-color;
             background-color: @button-background-color;
             background-size: @component-line-height;
+            color: @text-color;
             display: inline-block;
-            width: 70%;
             transition: background-size 250ms ease-in;
+            width: 70%;
             &[disabled] {
-                color: fade(@text-color, 50%);
                 background-color: @button-background-color;
                 background-size: 0;
+                color: fade(@text-color, 50%);
             }
             option.atom-axosoft-placeholder {
                 display: none;
@@ -78,22 +78,22 @@
             width: 30%;
         }
         .controls {
-            width: 100%;
             margin-right: @component-line-height;
+            width: 100%;
 
         }
         a.atom-axosoft-reload {
-            position: absolute;
-            width: @component-line-height;
-            height: @component-line-height;
-            background-color: fade(@text-color, 33%);
-            top: 0;
-            right: 0;
-            z-index: 1;
             -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat 50% 50%;
-            mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat 50% 50%;
             -webkit-mask-size: 80%;
+            background-color: fade(@text-color, 33%);
+            height: @component-line-height;
+            mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat 50% 50%;
             mask-size: 80%;
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: @component-line-height;
+            z-index: 1;
             &:hover {
                 background-color: @text-color;
             }
@@ -107,33 +107,33 @@
     }
 
     .atom-axosoft-message {
-        position: relative;
-        padding: .5em 1.25em .5em 1.25em;
-        z-index: 1;
         background: transparent;
+        padding: .5em 1.25em .5em 1.25em;
+        position: relative;
+        z-index: 1;
         &::before {
-            display: block;
+            -webkit-mask-size: fill;
             content: " ";
-            width: @component-line-height;
+            display: block;
             height: @component-line-height;
+            line-height: @component-line-height;
+            mask-size: fill;
             position: absolute;
             right: .5em;
             top: 0.25em;
+            width: @component-line-height;
             z-index: -1;
-            line-height: @component-line-height;
-            -webkit-mask-size: fill;
-            mask-size: fill;
         }
         .message-type(@color; @bgcolor; @icon; @animation: pulsate) {
             background-color: fade(@bgcolor, 20%);
             color: @color;
             &::before {
-                background-color: fade(@bgcolor, 50%);
-                -webkit-mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat right;
-                mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat right;
                 -webkit-animation: @animation 3s infinite linear;
-                animation: @animation 3s infinite linear;
+                -webkit-mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat right;
                 -webkit-mask-size: fill;
+                animation: @animation 3s infinite linear;
+                background-color: fade(@bgcolor, 50%);
+                mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat right;
                 mask-size: fill;
             }
         }
@@ -178,16 +178,17 @@
 .atom-axosoft-feature-list {
     list-style: none;
     margin: 0;
-    // margin: (@component-line-height * 2) 0 0 0;
-    padding: 0 0 (@component-line-height * 4) 0;
     // padding: 0;
     max-height: 100%;
     overflow-y: auto;
+    // margin: (@component-line-height * 2) 0 0 0;
+    padding: 0 0 (@component-line-height * 4) 0;
     z-index: 0;
     > li {
-        &:last-child {
-            // margin-bottom: 10em;
-        }
+        border-bottom: 1px solid @app-background-color;;
+        border-left: 0.25em solid transparent;
+        clear: both;
+        cursor: default;
         // select {
         //     position: relative;
         // }
@@ -203,70 +204,69 @@
         //     z-index: 99999;
         // }
         display: block;
-        clear: both;;
-        border-left: 0.25em solid transparent;
-        border-bottom: 1px solid @app-background-color;
-        cursor: default;
+        &:last-child {
+            // margin-bottom: 10em;
+        }
         > span,
         > a {
-            display: inline-block;
-            width: 30%;
             background-color: transparent;
+            display: inline-block;
             height: 1.75em;
             line-height: 1.75em;
-            text-overflow: ellipsis;
             overflow: hidden;
-            white-space: nowrap;
-            text-align: left;
             padding: 0 0.5em 0 0.5em;
+            text-align: left;
+            text-overflow: ellipsis;
+            white-space: nowrap;
+            width: 30%;
 
         }
         .atom-axosoft-feature-id {
-            width: 15%;
-            text-align: right;
             font-size: 90%;
+            text-align: right;
+            width: 15%;
         }
         .atom-axosoft-feature-name {
-            width: 55%;
             text-align: left;
+            width: 55%;
         }
         .atom-axosoft-feature-status {
-            width: 25%;
-            text-align: left;
-            font-size: 90%;
-            position: relative;
             // border: 1px solid transparent;
             // color: fade(@text-color, 66%);
             color: @text-color;
+            font-size: 90%;
             padding-right: @component-line-height;
+            position: relative;
+            text-align: left;
+            width: 25%;
 
             &:hover {
-                color: @text-color;
                 background-color: fade(@base-background-color, 66%);
+                color: @text-color;
                 &::after {
-                    //  @TODO: Genericize pseudo-elements.
-                    position: absolute;
-                    display: block;
+                    -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_down_black_24px.svg) no-repeat 50% 50%;
+                    -webkit-mask-size: 70%;
+                    background-color: @text-color;
                     content: " ";
-                    width: @component-line-height;
+                    display: block;
                     height: 100%;
                     line-height: inherit;
-                    top: 0;
-                    right: 0;
-                    background-color: @text-color;
-                    -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_down_black_24px.svg) no-repeat 50% 50%;
                     mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_down_black_24px.svg) no-repeat 50% 50%;
-                    -webkit-mask-size: 70%;
                     mask-size: 70%;
+                    //  @TODO: Genericize pseudo-elements.
+                    position: absolute;
+                    right: 0;
+                    top: 0;
+                    width: @component-line-height;
                     // transition: all 150ms ease-in;
                 }
             }
         }
         .settings-view,
         .atom-axosoft-feature-priority {
-            width: 5%;
             text-align: right;
             text-shadow: 0 0.0612em 0.125em fade(@app-background-color, 50%);
+            width: 5%;
 
             // select,
             // select.form-control {
@@ -287,13 +287,13 @@
             // }
         }
         .atom-axosoft-feature-description {
-            width: 100%;
-            max-height: 0;
+            background-color: @base-background-color;
             color: @text-color;
+            max-height: 0;
             overflow: auto;
             text-align: left;
-            background-color: @base-background-color;
             transition: max-height 150ms ease-in;
+            width: 100%;
             &.atom-axosoft-empty {
                 color: fade(@text-color, 50%);
                 text-align: center;
@@ -314,8 +314,8 @@
                 font-size: @font-size;
             }
             ul, ol {
-                padding: 0 0 0 1.5em;
-                margin: 0 0 (@component-line-height / 2) 0
+                margin: 0 0 (@component-line-height / 2) 0;
+                padding: 0 0 0 1.5em
             }
         }
         &.atom-axosoft-open {
@@ -326,18 +326,18 @@
         }
         .priority-type(@bgcolor; @icon) {
             background-color: fade(@bgcolor, 7%);
+            border-left-color: fade(@bgcolor, 50%);
             &:hover {
                 background-color: fade(@bgcolor, 25%);
             }
-            border-left-color: fade(@bgcolor, 50%);
             .atom-axosoft-feature-priority {
-                background-color: @bgcolor;
                 -webkit-mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat 50% 50%;
-                mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat 50% 50%;
-                line-height: @component-line-height;
-                width: 1em;
                 -webkit-mask-size: contain;
+                background-color: @bgcolor;
+                line-height: @component-line-height;
+                mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat 50% 50%;
                 mask-size: contain;
+                width: 1em;
             }
         }
         &.atom-axosoft-feature-priority-high {
