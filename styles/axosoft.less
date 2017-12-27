@@ -53,8 +53,6 @@
     overflow: hidden;
     .atom-axosoft-filter,
     .settings-view {
-        // display: flex;
-        // overflow: auto;
         position: relative;
         width: 100%;
         select,
@@ -236,6 +234,33 @@
             width: 25%;
             text-align: left;
             font-size: 90%;
+            position: relative;
+            // border: 1px solid transparent;
+            // color: fade(@text-color, 66%);
+            color: @text-color;
+            padding-right: @component-line-height;
+
+            &:hover {
+                color: @text-color;
+                background-color: fade(@base-background-color, 66%);
+                &::after {
+                    //  @TODO: Genericize pseudo-elements.
+                    position: absolute;
+                    display: block;
+                    content: " ";
+                    width: @component-line-height;
+                    height: 100%;
+                    line-height: inherit;
+                    top: 0;
+                    right: 0;
+                    background-color: @text-color;
+                    -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_down_black_24px.svg) no-repeat 50% 50%;
+                    mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_down_black_24px.svg) no-repeat 50% 50%;
+                    -webkit-mask-size: 70%;
+                    mask-size: 70%;
+                    // transition: all 150ms ease-in;
+                }
+            }
         }
         .atom-axosoft-feature-priority {
             width: 5%;
