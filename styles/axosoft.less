@@ -53,8 +53,28 @@
     overflow: hidden;
     .atom-axosoft-filter,
     .settings-view {
+        // display: flex;
+        // overflow: auto;
         position: relative;
         width: 100%;
+        select,
+        select.form-control {
+            color: @text-color;
+            background-color: @button-background-color;
+            background-size: @component-line-height;
+            display: inline-block;
+            width: 70%;
+            transition: background-size 250ms ease-in;
+            &[disabled] {
+                color: fade(@text-color, 50%);
+                background-color: @button-background-color;
+                background-size: 0;
+            }
+            option.atom-axosoft-placeholder {
+                display: none;
+            }
+        }
+
         .control-label {
             display: inline-block;
             width: 30%;
@@ -62,13 +82,7 @@
         .controls {
             width: 100%;
             margin-right: @component-line-height;
-            .form-control {
-                display: inline-block;
-                width: 70%;
-                option.atom-axosoft-placeholder {
-                    display: none;
-                }
-            }
+
         }
         a.atom-axosoft-reload {
             position: absolute;
@@ -112,49 +126,47 @@
             -webkit-mask-size: fill;
             mask-size: fill;
         }
-        &.loading {
-            background-color: fade(@background-color-info, 20%);
-            color: @text-color-info;
+        .message-type(@color; @bgcolor; @icon; @animation: pulsate) {
+            background-color: fade(@bgcolor, 20%);
+            color: @color;
             &::before {
-                background-color: fade(@background-color-info, 50%);
-                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat right;
-                mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat right;
-                -webkit-animation: rotate 3s infinite linear;
-                animation: rotate 3s infinite linear;
+                background-color: fade(@bgcolor, 50%);
+                -webkit-mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat right;
+                mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat right;
+                -webkit-animation: @animation 3s infinite linear;
+                animation: @animation 3s infinite linear;
+                -webkit-mask-size: fill;
+                mask-size: fill;
             }
+        }
+        &.loading {
+            .message-type(
+                @text-color-info;
+                @background-color-info;
+                "refresh";
+                "rotate"
+            );
         }
         &.info {
-            background-color: fade(@background-color-info, 20%);
-            color: @text-color-info;
-            &::before {
-                background-color: fade(@background-color-info, 50%);
-                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_info_black_24px.svg) no-repeat right;
-                mask: url(atom://atom-axosoft/resources/svg/ic_info_black_24px.svg) no-repeat right;
-                -webkit-animation: pulsate 3s infinite linear;
-                animation: pulsate 3s infinite linear;
-            }
+            .message-type(
+                @text-color-info;
+                @background-color-info;
+                "info"
+            );
         }
         &.warning {
-            background-color: fade(@background-color-warning, 20%);
-            color: @text-color-warning;
-            &::before {
-                background-color: fade(@background-color-warning, 50%);
-                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_warning_black_24px.svg) no-repeat right;
-                mask: url(atom://atom-axosoft/resources/svg/ic_warning_black_24px.svg) no-repeat right;
-                -webkit-animation: pulsate 3s infinite linear;
-                animation: pulsate 3s infinite linear;
-            }
+            .message-type(
+                @text-color-warning;
+                @background-color-warning;
+                "warning"
+            );
         }
         &.error {
-            background-color: fade(@background-color-error, 20%);
-            color: @text-color-error;
-            &::before {
-                background-color: fade(@background-color-error, 50%);
-                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_warning_black_24px.svg) no-repeat right;
-                mask: url(atom://atom-axosoft/resources/svg/ic_warning_black_24px.svg) no-repeat right;
-                -webkit-animation: pulsate 3s infinite linear;
-                animation: pulsate 3s infinite linear;
-            }
+            .message-type(
+                @text-color-error;
+                @background-color-error;
+                "warning"
+            );
         }
         &:empty {
             display: none;
@@ -268,55 +280,39 @@
                 // visibility: visible;
             }
         }
-        &.atom-axosoft-feature-priority-high {
-            background-color: fade(@background-color-error, 7%);
+        .priority-type(@bgcolor; @icon) {
+            background-color: fade(@bgcolor, 7%);
             &:hover {
-                background-color: fade(@background-color-error, 25%);
+                background-color: fade(@bgcolor, 25%);
             }
-            border-left-color: fade(@background-color-error, 50%);
+            border-left-color: fade(@bgcolor, 50%);
             .atom-axosoft-feature-priority {
-                // color: @background-color-error;
-                background-color: @background-color-error;
-                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_up_black_24px.svg) no-repeat 50% 50%;
-                mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_up_black_24px.svg) no-repeat 50% 50%;
+                background-color: @bgcolor;
+                -webkit-mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat 50% 50%;
+                mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat 50% 50%;
                 line-height: @component-line-height;
                 width: 1em;
                 -webkit-mask-size: contain;
                 mask-size: contain;
             }
+        }
+        &.atom-axosoft-feature-priority-high {
+            .priority-type(
+                @background-color-error;
+                "keyboard_arrow_up"
+            );
         }
         &.atom-axosoft-feature-priority-medium {
-            background-color: fade(@background-color-warning, 7%);
-            &:hover {
-                background-color: fade(@background-color-warning, 25%);
-            }
-            border-left-color: fade(@background-color-warning, 50%);
-            .atom-axosoft-feature-priority {
-                background-color: @background-color-warning;
-                // background-color: @background-color-error;
-                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_up_black_24px.svg) no-repeat 50% 50%;
-                mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_up_black_24px.svg) no-repeat 50% 50%;
-                line-height: @component-line-height;
-                width: 1em;
-                -webkit-mask-size: contain;
-                mask-size: contain;
-            }
+            .priority-type(
+                @background-color-warning;
+                "keyboard_arrow_up"
+            );
         }
         &.atom-axosoft-feature-priority-low {
-            background-color: fade(@background-color-success, 7%);
-            &:hover {
-                background-color: fade(@background-color-success, 25%);
-            }
-            border-left-color: fade(@background-color-success, 50%);
-            .atom-axosoft-feature-priority {
-                background-color: @background-color-success;
-                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_down_black_24px.svg) no-repeat 50% 50%;
-                mask: url(atom://atom-axosoft/resources/svg/ic_keyboard_arrow_down_black_24px.svg) no-repeat 50% 50%;
-                line-height: @component-line-height;
-                width: 1em;
-                -webkit-mask-size: contain;
-                mask-size: contain;
-            }
+            .priority-type(
+                @background-color-success;
+                "keyboard_arrow_down"
+            );
         }
 
     }
