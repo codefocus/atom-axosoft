@@ -1,22 +1,22 @@
 {
-    "name": "atom-axosoft",
-    "main": "./lib/atom-axosoft",
-    "version": "0.1.9",
-    "description": "A short description of your package",
-    "keywords": [],
-    "repository": "https://github.com/codefocus/atom-axosoft",
-    "license": "MIT",
-    "engines": {
-        "atom": ">=1.0.0 <2.0.0"
-    },
-    "dependencies": {
-        "amator": "^1.1.0",
-        "event-kit": "^2.4.0",
-        "linkifyjs": "^2.1.5",
-        "node-axosoft": "^2.3.0"
-    },
-    "uriHandler": {
-        "method": "handleAtomURI",
-        "deferActivation": false
-    }
+  "name": "atom-axosoft",
+  "main": "./lib/atom-axosoft",
+  "version": "0.1.10",
+  "description": "A short description of your package",
+  "keywords": [],
+  "repository": "https://github.com/codefocus/atom-axosoft",
+  "license": "MIT",
+  "engines": {
+    "atom": ">=1.0.0 <2.0.0"
+  },
+  "dependencies": {
+    "amator": "^1.1.0",
+    "event-kit": "^2.4.0",
+    "linkifyjs": "^2.1.5",
+    "node-axosoft": "^2.3.0"
+  },
+  "uriHandler": {
+    "method": "handleAtomURI",
+    "deferActivation": false
+  }
 }
