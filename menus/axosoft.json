@@ -1,26 +1,26 @@
 {
-  "context-menu": {
-    "atom-text-editor": [
-      {
-        "label": "Toggle axosoft",
-        "command": "axosoft:toggle"
-      }
-    ]
-  },
-  "menu": [
-    {
-      "label": "Packages",
-      "submenu": [
-        {
-          "label": "axosoft",
-          "submenu": [
+    "context-menu": {
+        "atom-text-editor": [
             {
-              "label": "Toggle",
-              "command": "axosoft:toggle"
+                "label": "Toggle atom-axosoft",
+                "command": "atom-axosoft:toggle"
             }
-          ]
+        ]
+    },
+    "menu": [
+        {
+            "label": "Packages",
+            "submenu": [
+                {
+                    "label": "atom-axosoft",
+                    "submenu": [
+                        {
+                            "label": "Toggle",
+                            "command": "atom-axosoft:toggle"
+                        }
+                    ]
+                }
+            ]
         }
-      ]
-    }
-  ]
+    ]
 }

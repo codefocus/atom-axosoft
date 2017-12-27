@@ -5,22 +5,45 @@
 @import "ui-variables";
 
 @-webkit-keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
 
-  to {
-    transform: rotate(359deg);
-  }
+    to {
+        transform: rotate(359deg);
+    }
 }
 @keyframes rotate {
-  from {
-    transform: rotate(0deg);
-  }
+    from {
+        transform: rotate(0deg);
+    }
 
-  to {
-    transform: rotate(359deg);
-  }
+    to {
+        transform: rotate(359deg);
+    }
+}
+
+@-webkit-keyframes pulsate {
+    from {
+        opacity: .1;
+    }
+    50% {
+        opacity: .5;
+    }
+    to {
+        opacity: .1
+    }
+}
+@keyframes pulsate {
+    from {
+        opacity: .1;
+    }
+    50% {
+        opacity: .5;
+    }
+    to {
+        opacity: .1
+    }
 }
 
 .atom-axosoft {
@@ -31,25 +54,22 @@
     .atom-axosoft-filter,
     .settings-view {
         position: relative;
-        // .control-group {
-        //     display: block;
-        //     position: relative;
-        //     width: 100%;
-            .control-label {
+        width: 100%;
+        .control-label {
+            display: inline-block;
+            width: 30%;
+        }
+        .controls {
+            width: 100%;
+            margin-right: @component-line-height;
+            .form-control {
                 display: inline-block;
-                width: 30%;
-            }
-            .controls {
-                margin-right: @component-line-height;
-                .form-control {
-                    display: inline-block;
-                    width: 70%;
-                    option.atom-axosoft-placeholder {
-                        display: none;
-                    }
+                width: 70%;
+                option.atom-axosoft-placeholder {
+                    display: none;
                 }
             }
-        // }
+        }
         a.atom-axosoft-reload {
             position: absolute;
             width: @component-line-height;
@@ -70,6 +90,76 @@
             a.atom-axosoft-reload {
                 -webkit-animation: rotate 4s infinite linear;
                 animation: rotate 4s infinite linear;
+            }
+        }
+    }
+
+    .atom-axosoft-message {
+        position: relative;
+        padding: .5em 1.25em .5em 1.25em;
+        z-index: 1;
+        background: transparent;
+        &::before {
+            display: block;
+            content: " ";
+            width: @component-line-height;
+            height: @component-line-height;
+            position: absolute;
+            right: .5em;
+            top: 0.25em;
+            z-index: -1;
+            line-height: @component-line-height;
+            -webkit-mask-size: fill;
+            mask-size: fill;
+        }
+        &.loading {
+            background-color: fade(@background-color-info, 20%);
+            color: @text-color-info;
+            &::before {
+                background-color: fade(@background-color-info, 50%);
+                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat right;
+                mask: url(atom://atom-axosoft/resources/svg/ic_refresh_black_24px.svg) no-repeat right;
+                -webkit-animation: rotate 3s infinite linear;
+                animation: rotate 3s infinite linear;
+            }
+        }
+        &.info {
+            background-color: fade(@background-color-info, 20%);
+            color: @text-color-info;
+            &::before {
+                background-color: fade(@background-color-info, 50%);
+                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_info_black_24px.svg) no-repeat right;
+                mask: url(atom://atom-axosoft/resources/svg/ic_info_black_24px.svg) no-repeat right;
+                -webkit-animation: pulsate 3s infinite linear;
+                animation: pulsate 3s infinite linear;
+            }
+        }
+        &.warning {
+            background-color: fade(@background-color-warning, 20%);
+            color: @text-color-warning;
+            &::before {
+                background-color: fade(@background-color-warning, 50%);
+                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_warning_black_24px.svg) no-repeat right;
+                mask: url(atom://atom-axosoft/resources/svg/ic_warning_black_24px.svg) no-repeat right;
+                -webkit-animation: pulsate 3s infinite linear;
+                animation: pulsate 3s infinite linear;
+            }
+        }
+        &.warning {
+            background-color: fade(@background-color-error, 20%);
+            color: @text-color-error;
+            &::before {
+                background-color: fade(@background-color-error, 50%);
+                -webkit-mask: url(atom://atom-axosoft/resources/svg/ic_warning_black_24px.svg) no-repeat right;
+                mask: url(atom://atom-axosoft/resources/svg/ic_warning_black_24px.svg) no-repeat right;
+                -webkit-animation: pulsate 3s infinite linear;
+                animation: pulsate 3s infinite linear;
+            }
+        }
+        &:empty {
+            display: none;
+            &::before {
+                display: none;
             }
         }
     }
