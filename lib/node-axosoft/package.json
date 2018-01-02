@@ -1,0 +1,103 @@
+{
+  "_args": [
+    [
+      {
+        "raw": "node-axosoft@^2.3.0",
+        "scope": null,
+        "escapedName": "node-axosoft",
+        "name": "node-axosoft",
+        "rawSpec": "^2.3.0",
+        "spec": ">=2.3.0 <3.0.0",
+        "type": "range"
+      },
+      "/Users/mennovanens/github/atom-axosoft"
+    ]
+  ],
+  "_from": "node-axosoft@>=2.3.0 <3.0.0",
+  "_id": "node-axosoft@2.3.0",
+  "_inCache": true,
+  "_location": "/node-axosoft",
+  "_nodeVersion": "6.10.1",
+  "_npmOperationalInternal": {
+    "host": "packages-18-east.internal.npmjs.com",
+    "tmp": "tmp/node-axosoft-2.3.0.tgz_1494374441133_0.09552112431265414"
+  },
+  "_npmUser": {
+    "name": "jdgarcia",
+    "email": "garciajd90@gmail.com"
+  },
+  "_npmVersion": "3.10.10",
+  "_phantomChildren": {},
+  "_requested": {
+    "raw": "node-axosoft@^2.3.0",
+    "scope": null,
+    "escapedName": "node-axosoft",
+    "name": "node-axosoft",
+    "rawSpec": "^2.3.0",
+    "spec": ">=2.3.0 <3.0.0",
+    "type": "range"
+  },
+  "_requiredBy": [
+    "/"
+  ],
+  "_resolved": "https://registry.npmjs.org/node-axosoft/-/node-axosoft-2.3.0.tgz",
+  "_shasum": "795fa04274284b9e2f765f605cb55f2a44007177",
+  "_shrinkwrap": null,
+  "_spec": "node-axosoft@^2.3.0",
+  "_where": "/Users/mennovanens/github/atom-axosoft",
+  "author": {
+    "name": "Brett Goldman"
+  },
+  "bugs": {
+    "url": "https://github.com/axosoft/node-axosoft/issues"
+  },
+  "dependencies": {
+    "lodash": "^3.10.1",
+    "moment": "^2.10.6",
+    "restler": "^3.4.0"
+  },
+  "description": "A node.js client for accessing the Axosoft API",
+  "devDependencies": {},
+  "directories": {
+    "lib": "./lib"
+  },
+  "dist": {
+    "shasum": "795fa04274284b9e2f765f605cb55f2a44007177",
+    "tarball": "https://registry.npmjs.org/node-axosoft/-/node-axosoft-2.3.0.tgz"
+  },
+  "gitHead": "523060b3001a75ba92270617ef9bbc07aec31941",
+  "homepage": "https://github.com/axosoft/node-axosoft#readme",
+  "keywords": [
+    "Node",
+    "NodeJS",
+    "Axosoft",
+    "API"
+  ],
+  "license": "MIT",
+  "main": "./lib/node-axosoft",
+  "maintainers": [
+    {
+      "name": "brettgaxosoft",
+      "email": "brettg@axosoft.com"
+    },
+    {
+      "name": "dancinghacker",
+      "email": "stjepan.rajko@gmail.com"
+    },
+    {
+      "name": "jdgarcia",
+      "email": "garciajd90@gmail.com"
+    }
+  ],
+  "name": "node-axosoft",
+  "optionalDependencies": {},
+  "readme": "ERROR: No README data found!",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/axosoft/node-axosoft.git"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "version": "2.3.0"
+}
