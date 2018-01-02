@@ -94,14 +94,16 @@
             top: 0;
             width: @component-line-height;
             z-index: 1;
-            &:hover {
-                background-color: @text-color-highlight;
-            }
         }
         &.atom-axosoft-reloading {
             a.atom-axosoft-reload {
                 -webkit-animation: rotate 4s infinite linear;
                 animation: rotate 4s infinite linear;
+            }
+        }
+        &:hover {
+            a.atom-axosoft-reload {
+                background-color: @text-color-highlight;
             }
         }
     }
