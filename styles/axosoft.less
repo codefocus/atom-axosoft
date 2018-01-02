@@ -180,10 +180,8 @@
 .atom-axosoft-feature-list {
     list-style: none;
     margin: 0;
-    // padding: 0;
     max-height: 100%;
     overflow-y: auto;
-    // margin: (@component-line-height * 2) 0 0 0;
     padding: 0 0 (@component-line-height * 4) 0;
     z-index: 0;
     > li {
@@ -191,24 +189,7 @@
         border-left: 0.25em solid transparent;
         clear: both;
         cursor: default;
-        // select {
-        //     position: relative;
-        // }
-        // span::before {
-        //     display: block;
-        //     position: absolute;
-        //     top: 1em;
-        //     left: 0;
-        //     width: 5em;
-        //     height: 1em;
-        //     background-color: red;
-        //     content: " ";
-        //     z-index: 99999;
-        // }
         display: block;
-        &:last-child {
-            // margin-bottom: 10em;
-        }
         &.disabled {
             color: fade(@text-color, 50%);
             pointer-events: none;
