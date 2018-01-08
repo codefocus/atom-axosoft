@@ -55,10 +55,19 @@
     .settings-view {
         position: relative;
         width: 100%;
+        atom-text-editor {
+            display: inline-block;
+            width: 70%;
+        }
         select,
-        select.form-control {
+        select.form-control,
+        input,
+        input.form-control,
+        atom-text-editorz {
             background-color: @button-background-color;
             background-size: @component-line-height;
+            line-height: @component-line-height;
+            // height: @component-line-height;
             color: @text-color;
             display: inline-block;
             transition: background-size 250ms ease-in;
@@ -74,8 +83,11 @@
         }
 
         .control-label {
+            line-height: @component-line-height;
+            // height: @component-line-height;
             display: inline-block;
             width: 30%;
+            vertical-align: top;
         }
         .controls {
             margin-right: @component-line-height;

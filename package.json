@@ -25,8 +25,7 @@
     "linkifyjs": "^2.1.5",
     "node-axosoft": "^2.3.0"
   },
-  "uriHandler": {
-    "method": "handleAtomURI",
-    "deferActivation": false
+  "devDependencies": {
+    "atom-panetastic": "^0.1.4"
   }
 }
