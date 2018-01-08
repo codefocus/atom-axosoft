@@ -1,7 +1,7 @@
 {
   "name": "atom-axosoft",
   "main": "./lib/atom-axosoft",
-  "version": "0.1.18",
+  "version": "0.1.19",
   "description": "Access your Axosoft work items without leaving Atom.",
   "keywords": [
     "axosoft",
