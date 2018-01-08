@@ -192,6 +192,7 @@
 .atom-axosoft-feature-list {
     list-style: none;
     margin: 0;
+    padding: 0 0 0 0.5em;
     max-height: 100%;
     max-height: calc(~"100% - " ((@component-line-height * 3) + @component-padding * 3) );
     overflow-y: auto;
@@ -199,10 +200,18 @@
     z-index: 0;
     overflow-y: auto;
 
-    > li {
+    > li,
+    > li > ul > li {
 
+        clear: both;
+        cursor: default;
+        width: 100%;
+        // margin: 0;
+        // padding: 0;
 
         .atom-axosoft-feature-line {
+            border-bottom: 1px solid @app-background-color;;
+            border-left: 0.25em solid transparent;
             cursor: default;
             display: flex;
             flex-direction: row;
@@ -303,11 +312,6 @@
                 }
             }
         }
-        border-bottom: 1px solid @app-background-color;;
-        border-left: 0.25em solid transparent;
-        clear: both;
-        cursor: default;
-        width: 100%;
 
         &.disabled {
             color: fade(@text-color, 50%);
@@ -382,10 +386,14 @@
             }
         }
         .priority-type(@bgcolor; @icon) {
-            background-color: fade(@bgcolor, 7%);
-            border-left-color: fade(@bgcolor, 50%);
+            > .atom-axosoft-feature-line {
+                background-color: fade(@bgcolor, 7%);
+                border-left-color: fade(@bgcolor, 50%);
+            }
             &:hover {
-                background-color: fade(@bgcolor, 25%);
+                > .atom-axosoft-feature-line {
+                    background-color: fade(@bgcolor, 25%);
+                }
             }
             .atom-axosoft-feature-priority {
                 -webkit-mask: url("atom://atom-axosoft/resources/svg/ic_@{icon}_black_24px.svg") no-repeat 50% 50%;
